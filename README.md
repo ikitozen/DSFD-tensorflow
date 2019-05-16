@@ -76,6 +76,40 @@ THEN, run:
 
 and if u want to check the data when training, u could set vis in train_config.py as True
 
+
+#### CAUTION， WHEN USE TENSORPACK FOR DATA PROVIDER, some change is needed. 
+#### in lib/python3.6/site-packages/tensorpack/dataflow line 71-96 , to make the iterator unstoppable, change as below
+ 71 class DataFromList(RNGDataFlow):
+ 72     """ Wrap a list of datapoints to a DataFlow"""
+ 73 
+ 74     def __init__(self, lst, shuffle=True):
+ 75         """
+ 76         Args:
+ 77             lst (list): input list. Each element is a datapoint.
+ 78             shuffle (bool): shuffle data.
+ 79         """
+ 80         super(DataFromList, self).__init__()
+ 81         self.lst = lst
+ 82         self.shuffle = shuffle
+ 83     
+ 84     #def __len__(self):
+ 85     #    return len(self.lst)
+ 86 
+ 87     def __iter__(self):
+ 88         if not self.shuffle:
+ 89             for k in self.lst:
+ 90                 yield k
+ 91         else:
+ 92             while True:
+ 93                 idxs = np.arange(len(self.lst))
+ 94                 self.rng.shuffle(idxs)
+ 95                 for k in idxs:
+ 96                     yield self.lst[k]
+
+
+
+
+
 ### visualization
 ![A demo](https://github.com/610265158/dsfd_tensorflow/blob/master/res_screenshot_11.05.2019.png)
 
