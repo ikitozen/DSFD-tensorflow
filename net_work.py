@@ -9,7 +9,7 @@ import numpy as np
 import cv2
 import math
 from functools import partial
-from tensorpack.dataflow import BatchData, MultiThreadMapData, PrefetchDataZMQ
+from tensorpack.dataflow import BatchData, MultiThreadMapData, MultiProcessPrefetchData
 
 from net.ssd import SSD
 from train_config import config as cfg
@@ -98,7 +98,7 @@ class trainner():
         else:
             ds = MultiThreadMapData(ds, 5, self.val_map_func, buffer_size=200, strict=True)
         ds = BatchData(ds, cfg.TRAIN.num_gpu * cfg.TRAIN.batch_size, remainder=True,use_list=False)
-        ds = PrefetchDataZMQ(ds, 2)
+        ds = MultiProcessPrefetchData(ds, 100,2)
         ds.reset_state()
         ds=ds.get_data()
 
