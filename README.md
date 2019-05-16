@@ -64,13 +64,13 @@ and release the WIDER_train, WIDER_val and wider_face_split into ./WIDER, or som
 1.download the imagenet pretrained resnet50 model from http://download.tensorflow.org/models/resnet_v1_50_2016_08_28.tar.gz
 
 release it in the root dir,
-as in train_config.py set **config.MODEL.pretrained_model='resnet_v1_50.ckpt',config.MODEL.continue_train=False**
+as in train_config.py set config.MODEL.pretrained_model='resnet_v1_50.ckpt',config.MODEL.continue_train=False
 
 2.but if u want to train from scratch set config.MODEL.pretrained_model=None,
 
-3.if recover from a complet pretrained model  set **config.MODEL.pretrained_model='yourmodel.ckpt',config.MODEL.continue_train=True**
+3.if recover from a complet pretrained model  set config.MODEL.pretrained_model='yourmodel.ckpt',config.MODEL.continue_train=True
 
-THEN, run:
+then, run:
 
 `python train.py`
 
