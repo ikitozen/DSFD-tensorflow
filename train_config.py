@@ -9,7 +9,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0"          ##if u use muti gpu set them v
 
 config.TRAIN = edict()
 config.TRAIN.num_gpu = 1
-config.TRAIN.batch_size = 4                    ###A big batch size may achieve a better result the the memory is a problem
+config.TRAIN.batch_size = 4                    ###A big batch size may achieve a better result, but the memory is a problem
 config.TRAIN.log_interval = 10
 config.TRAIN.epoch = 2000
 config.TRAIN.train_set_size=16000  ###########u need be sure
