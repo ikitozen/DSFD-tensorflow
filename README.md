@@ -78,7 +78,7 @@ and if u want to check the data when training, u could set vis in train_config.p
 
 
 #### ** CAUTION， WHEN USE TENSORPACK FOR DATA PROVIDER, some change is needed. **
-#### in lib/python3.6/site-packages/tensorpack/dataflow ,line 71-96. to make the iterator unstoppable, change it as below. so that we can keep trainning when the iter was over. contact me if u have problem about the codes : )
+#### in lib/python3.6/site-packages/tensorpack/dataflow/raw.py ,line 71-96. to make the iterator unstoppable, change it as below. so that we can keep trainning when the iter was over. contact me if u have problem about the codes : )
 ```
  71 class DataFromList(RNGDataFlow):
  72     """ Wrap a list of datapoints to a DataFlow"""
