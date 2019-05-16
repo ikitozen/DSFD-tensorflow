@@ -79,21 +79,21 @@ config.ANCHOR.achors_num=len(all_anchors_flatten)
 
 print(len(all_anchors_flatten))
 
-# basemodel ----------------------
+# basemodel ---------------------- fddb 0.983
 config.MODEL = edict()
 config.MODEL.continue_train=False ### revover from a trained model
 config.MODEL.model_path = './model/'  # save directory
 config.MODEL.net_structure='resnet_v1_50' ######'resnet_v1_50,resnet_v1_101,mobilenet
 config.MODEL.pretrained_model='resnet_v1_50.ckpt'
 
-###resnet_v1_50 as basemodel
+###resnet_v1_101 as basemodel
 # config.MODEL = edict()
 # config.MODEL.continue_train=False ### revover from a trained model
 # config.MODEL.model_path = './model/'  # save directory
 # config.MODEL.net_structure='resnet_v1_101' ######'resnet_v1_50,resnet_v1_101,mobilenet
 # config.MODEL.pretrained_model='resnet_v1_101.ckpt'
 
-##mobilenet as basemodel,but mobilenet is failed, keedchecking ingingining
+##mobilenet as basemodel
 # config.MODEL = edict()
 # config.MODEL.continue_train=False ### revover from a trained model
 # config.MODEL.model_path = './model/'  # save directory
